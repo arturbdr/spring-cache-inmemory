@@ -3,3 +3,8 @@ spring:
     jcache:
       provider: org.ehcache.jsr107.EhcacheCachingProvider
       config: classpath:ehcache.xml
+
+app:
+  cache:
+    inmemory:
+      secondsTtl: 5
