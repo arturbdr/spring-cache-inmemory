@@ -28,7 +28,7 @@ public class UserController {
     public ResponseEntity<User> getBla(@RequestParam final String userId) {
         final Cache toggle = cacheManager.getCache("toggle");
         if (toggle != null && toggle.get(userId) != null) {
-            User user = (User) toggle.get(userId).get();
+            User user = toggle.get(userId, User.class);
             return ResponseEntity.ok(user);
         }
         return ResponseEntity.noContent().build();
